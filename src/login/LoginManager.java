@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.*;
 
-import com.mysql.jdbc.Connection;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
