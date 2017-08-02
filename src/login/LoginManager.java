@@ -1,11 +1,6 @@
 package login;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,10 +18,10 @@ public class LoginManager {
 
   /**
    * Callback method invoked to notify that a user has been authenticated.
-   * Will show the main application screen.
+   * Will show the adding products screen.
    */ 
-  public void authenticated(String sessionID) {
-    showMainView(sessionID);
+  public void authenticated(String user) {
+    showMainView(user);
   }
 
   /**
@@ -51,37 +46,37 @@ public class LoginManager {
     }
   }
 
-  private void showMainView(String sessionID)  {
+  private void showMainView(String user)  {
     try {
       FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("mainview.fxml")
+        getClass().getResource("AddingProductsView.fxml")
       );
       scene.setRoot((Parent) loader.load());
-      try {
-		Class.forName("com.mysql.jdbc.Driver").newInstance();
-	} catch (InstantiationException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	} catch (IllegalAccessException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	} catch (ClassNotFoundException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}
-      String result = "";
-      try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cookidea?"+"user=root&password=root")) {
-    	  PreparedStatement prepareStatement = conn.prepareStatement("SELECT * FROM countableproduct");
-    	  ResultSet executeQuery = prepareStatement.executeQuery();
-    	  while (executeQuery.next()) {
-			result = executeQuery.getString(1);
-		}
-      } catch (SQLException e) {
-		e.printStackTrace();
-	}
-      MainViewController controller = 
-        loader.<MainViewController>getController();
-      controller.initSessionID(this, sessionID, result);
+//      try {
+//		Class.forName("com.mysql.jdbc.Driver").newInstance();
+//	} catch (InstantiationException e1) {
+//		// TODO Auto-generated catch block
+//		e1.printStackTrace();
+//	} catch (IllegalAccessException e1) {
+//		// TODO Auto-generated catch block
+//		e1.printStackTrace();
+//	} catch (ClassNotFoundException e1) {
+//		// TODO Auto-generated catch block
+//		e1.printStackTrace();
+//	}
+//      String result = "";
+//      try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cookidea?"+"user=root&password=root")) {
+//    	  PreparedStatement prepareStatement = conn.prepareStatement("SELECT * FROM countableproduct");
+//    	  ResultSet executeQuery = prepareStatement.executeQuery();
+//    	  while (executeQuery.next()) {
+//			result = executeQuery.getString(1);
+//		}
+//      } catch (SQLException e) {
+//		e.printStackTrace();
+//	}
+      AddingProductsController controller = 
+        loader.<AddingProductsController>getController();
+      controller.initView(this, user);
     } catch (IOException ex) {
       Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
     }

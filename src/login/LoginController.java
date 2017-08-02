@@ -15,9 +15,9 @@ public class LoginController {
   public void initManager(final LoginManager loginManager) {
     loginButton.setOnAction(new EventHandler<ActionEvent>() {
       @Override public void handle(ActionEvent event) {
-        String sessionID = authorize();
-        if (sessionID != null) {
-          loginManager.authenticated(sessionID);
+        String user = authorize();
+        if (user != null) {
+          loginManager.authenticated(user);
         }
       }
     });
@@ -26,20 +26,13 @@ public class LoginController {
   /**
    * Check authorization credentials.
    * 
-   * If accepted, return a sessionID for the authorized session
+   * If accepted, return a username for the authorized user
    * otherwise, return null.
    */   
   private String authorize() {
     return 
       "open".equals(user.getText()) && "sesame".equals(password.getText()) 
-            ? generateSessionID() 
+            ? user.getText() 
             : null;
-  }
-  
-  private static int sessionID = 0;
-
-  private String generateSessionID() {
-    sessionID++;
-    return "xyzzy - session " + sessionID;
   }
 }
