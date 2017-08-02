@@ -1,15 +1,17 @@
 package login;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.*;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 /** Manages control flow for logins */
 public class LoginManager {
@@ -68,7 +70,7 @@ public class LoginManager {
 		e1.printStackTrace();
 	}
       String result = "";
-      try(java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cookidea?"+"user=root&password=root")) {
+      try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cookidea?"+"user=root&password=root")) {
     	  PreparedStatement prepareStatement = conn.prepareStatement("SELECT * FROM countableproduct");
     	  ResultSet executeQuery = prepareStatement.executeQuery();
     	  while (executeQuery.next()) {
