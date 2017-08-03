@@ -1,3 +1,4 @@
+USE cookidea;
 DROP DATABASE cookidea;
 
 CREATE DATABASE cookidea;
@@ -145,11 +146,12 @@ CREATE TABLE uncountableProductHousehold(
 CREATE TABLE binaryProductHousehold(
 	binaryProductId INTEGER NOT NULL,
 	householdId INTEGER NOT NULL,
-	availability BOOLEAN, 
-	PRIMARY KEY(uncountableProductId,householdId),
-	FOREIGN KEY(uncountableProductId) REFERENCES uncountableProduct(id),
+	PRIMARY KEY(binaryProductId,householdId),
+	FOREIGN KEY(binaryProductId) REFERENCES binaryProduct(id),
 	FOREIGN KEY(householdId) REFERENCES household(id)
 );
+
+select 'This is a comment' AS '';
 
 INSERT INTO countableProductCategory VALUES(default, 'Fruits');
 INSERT INTO countableProductCategory VALUES(default, 'Vegetagles');
@@ -236,13 +238,14 @@ INSERT INTO cousineType VALUES(default, 'Czech');
 INSERT INTO cousineType VALUES(default, 'French');
 INSERT INTO cousineType VALUES(default, 'Asian');
 
-INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę. Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek. Podsmażamy na niewielkim ogniu, co chwilę mieszając. Następnie dodajemy mięso mielone i smażymy do zarumienienia. Dolewamy wino i gotujemy, aż alkohol odparuje. Następnie dodajemy pomidory pelati. Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii. W dużym garnku zagotowujemy wodę. Do gotującej się wody dodajemy sól i makaron. Gotujemy al dente według wskazań na opakowaniu. Makaron odcedzamy przez sito. Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu. Ugotowany makaron dokładnie mieszamy z sosem. Makaron z sosem przekładamy na talerz. Wierzch posypujemy startym parmezanem. Dekorujemy listkami świeżej bazylii.', 3, 3, 4, 4);
-INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle. Do cebuli dodajemy suchy ryż, całość mieszamy. Wino mieszamy z musztardą i wlewamy na patelnię. Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając. Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy. Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu. Czynność powtarzamy, aż cały bulion zostanie dodany. Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi. Przyprawiamy do smaku solą i pieprzem.', 3, 3, 4, 3);
-INSERT INTO recipe VALUES(default, 'Doves', 'Mięso włożyć do większej miski. Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa. Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem. Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki). Wszystko wymieszać i dobrze wyrobić dłonią. Uformować niewielkie podłużne kotlety. Czytaj dalej...', 3, 1, 6, 5);
-INSERT INTO recipe VALUES(default, 'Burgers', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem. Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min. Pozostałe warzywa pokroić. Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 2, 2, 6, 2);
-INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej. Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem. Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę. Piecz 25 minut w temperaturze 180 stopni.', 1, 2, 6, 2);
-INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany. Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron. Podawać z owocami', 4, 2, 24, 2);
-INSERT INTO recipe VALUES(default, 'Fruits salat', 'Wszystkie owoce umyć, obrać i pokroić w kostkę. Wydusić sok z jednej limonki i wymieszać delikatnie wszystko. Schłodzić przed podaniem. ', 5, 1, 2, 1);
+INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę. Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek. Podsmażamy na niewielkim ogniu, co chwilę mieszając. Następnie dodajemy mięso mielone i smażymy do zarumienienia. Dolewamy wino i gotujemy, aż alkohol odparuje. Następnie dodajemy pomidory pelati. Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii. W dużym garnku zagotowujemy wodę. Do gotującej się wody dodajemy sól i makaron. Gotujemy al dente według wskazań na opakowaniu. Makaron odcedzamy przez sito. Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu. Ugotowany makaron dokładnie mieszamy z sosem. Makaron z sosem przekładamy na talerz. Wierzch posypujemy startym parmezanem. Dekorujemy listkami świeżej bazylii.', 60,3, 3, 4, 4);
+INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle. Do cebuli dodajemy suchy ryż, całość mieszamy. Wino mieszamy z musztardą i wlewamy na patelnię. Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając. Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy. Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu. Czynność powtarzamy, aż cały bulion zostanie dodany. Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi. Przyprawiamy do smaku solą i pieprzem.',60, 3, 3, 4, 3);
+INSERT INTO recipe VALUES(default, 'Doves', 'Mięso włożyć do większej miski. Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa. Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem. Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki). Wszystko wymieszać i dobrze wyrobić dłonią. Uformować niewielkie podłużne kotlety. Czytaj dalej...',90, 3, 1, 6, 5);
+INSERT INTO recipe VALUES(default, 'Burgers', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem. Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min. Pozostałe warzywa pokroić. Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 30,2, 2, 6, 2);
+INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej. Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem. Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę. Piecz 25 minut w temperaturze 180 stopni.',40, 1, 2, 6, 2);
+INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany. Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron. Podawać z owocami',20, 4, 2, 24, 2);
+INSERT INTO recipe VALUES(default, 'Fruits salat', 'Wszystkie owoce umyć, obrać i pokroić w kostkę. Wydusić sok z jednej limonki i wymieszać delikatnie wszystko. Schłodzić przed podaniem. ',10, 5, 1, 2, 1);
+
 
 INSERT INTO countableProductRecipe VALUES(2, 1, 2);
 INSERT INTO countableProductRecipe VALUES(4, 1, 1);
@@ -295,15 +298,20 @@ INSERT INTO countableProductRecipe VALUES(8, 6, 2);
 INSERT INTO uncountableProductRecipe VALUES(10, 6, 150);
 INSERT INTO uncountableProductRecipe VALUES(11, 6, 200);
 INSERT INTO liquidProductRecipe VALUES(4, 6, 250);
-INSERT INTO binaryProductRecipe VALUES(3, 5);
-INSERT INTO binaryProductRecipe VALUES(3, 4);
+INSERT INTO binaryProductRecipe VALUES(3, 6);
+INSERT INTO binaryProductRecipe VALUES(4, 6);
 
-INSERT INTO countableProductHousehold VALUES(14, 7, 1);
-INSERT INTO countableProductHousehold VALUES(15, 7, 1);
-INSERT INTO countableProductHousehold VALUES(16, 7, 1);
-INSERT INTO countableProductHousehold VALUES(17, 7, 1);
-INSERT INTO countableProductHousehold VALUES(18, 7, 1);
-INSERT INTO countableProductHousehold VALUES(19, 7, 1);
+INSERT INTO countableProductHousehold VALUES(1, 1, 5);
+INSERT INTO countableProductHousehold VALUES(2, 1, 1);
+INSERT INTO countableProductHousehold VALUES(4, 1, 2);
+INSERT INTO countableProductHousehold VALUES(5, 1, 5);
+INSERT INTO countableProductHousehold VALUES(8, 1, 10);
+INSERT INTO countableProductHousehold VALUES(9, 1, 3);
+INSERT INTO countableProductHousehold VALUES(12, 1, 2);
+INSERT INTO countableProductHousehold VALUES(14, 1, 2);
+INSERT INTO countableProductHousehold VALUES(15, 1, 2);
+INSERT INTO countableProductHousehold VALUES(16, 1, 20);
+INSERT INTO countableProductHousehold VALUES(18, 1, 1);
 
 INSERT INTO uncountableProductHousehold VALUES(1, 1, 5);
 INSERT INTO uncountableProductHousehold VALUES(2, 1, 1);
@@ -312,18 +320,12 @@ INSERT INTO uncountableProductHousehold VALUES(5, 1, 5);
 INSERT INTO uncountableProductHousehold VALUES(8, 1, 10);
 INSERT INTO uncountableProductHousehold VALUES(9, 1, 3);
 INSERT INTO uncountableProductHousehold VALUES(12, 1, 2);
-INSERT INTO uncountableProductHousehold VALUES(14, 1, 2);
-INSERT INTO uncountableProductHousehold VALUES(15, 1, 2);
-INSERT INTO uncountableProductHousehold VALUES(16, 1, 20);
-INSERT INTO uncountableProductHousehold VALUES(18, 1, 1);
 
 INSERT INTO liquidProductHousehold VALUES(1, 1, 1);
 INSERT INTO liquidProductHousehold VALUES(2, 1, 500);
 INSERT INTO liquidProductHousehold VALUES(3, 1, 150);
 INSERT INTO liquidProductHousehold VALUES(4, 1, 200);
 INSERT INTO liquidProductHousehold VALUES(5, 1, 250);
-INSERT INTO liquidProductHousehold VALUES(10, 1, 1000);
-INSERT INTO liquidProductHousehold VALUES(11, 1, 1000);
 
 INSERT INTO binaryProductHousehold VALUES(1, 1);
 INSERT INTO binaryProductHousehold VALUES(2, 1);
