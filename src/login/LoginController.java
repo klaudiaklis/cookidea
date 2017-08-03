@@ -1,38 +1,60 @@
 package login;
 
+import dao.IUserDao;
+import dao.UserDao;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import model.Household;
 
 /** Controls the login screen */
 public class LoginController {
-  @FXML private TextField user;
-  @FXML private TextField password;
-  @FXML private Button loginButton;
-  
-  public void initialize() {}
-  
-  public void initManager(final LoginManager loginManager) {
-    loginButton.setOnAction(new EventHandler<ActionEvent>() {
-      @Override public void handle(ActionEvent event) {
-        String user = authorize();
-        if (user != null) {
-          loginManager.authenticated(user);
-        }
-      }
-    });
-  }
+	@FXML
+	private TextField user;
+	@FXML
+	private TextField password;
+	@FXML
+	private Button loginButton;
+	@FXML
+	private Button registerButton;
 
-  /**
-   * Check authorization credentials.
-   * 
-   * If accepted, return a username for the authorized user
-   * otherwise, return null.
-   */   
-  private String authorize() {
-    return 
-      "open".equals(user.getText()) && "sesame".equals(password.getText()) 
-            ? user.getText() 
-            : null;
-  }
+	public void initialize() {
+	}
+
+	public void initManager(final LoginManager loginManager) {
+		loginButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				String user = authorize();
+				if (user != null) {
+					loginManager.authenticated(user);
+				}
+			}
+		});
+
+		registerButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				loginManager.register();
+			}
+
+		});
+	}
+
+	/**
+	 * Check authorization credentials.
+	 * 
+	 * If accepted, return a username for the authorized user otherwise, return
+	 * null.
+	 */
+	private String authorize() {
+		IUserDao userDao = new UserDao();
+		Household householdByUser = userDao.getHouseholdByUser(user.getText());
+		if (householdByUser == null) {
+			return null;
+		}
+		return householdByUser.getName().equals(user.getText())
+				&& householdByUser.getPassword().equals(password.getText()) ? user.getText() : null;
+	}
 }

@@ -31,8 +31,7 @@ public class AddingProductsController {
 	
 	private List<String> products = new ArrayList<>();
 	private ListProperty<String> listProperty = new SimpleListProperty<>();
-	
-	public void initialize() {}
+
 	public void initView(LoginManager loginManager, String user) {
 		householdProductsLabel.setText(householdProductsLabel.getText() + " " + user);
 		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
