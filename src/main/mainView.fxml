@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainViewController">
+   <children>
+      <TitledPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <SplitPane dividerPositions="0.11009174311926606" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <HBox layoutX="222.0" prefHeight="57.0" prefWidth="929.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FlowPane prefHeight="57.0" prefWidth="943.0">
+                                 <children>
+                                    <ImageView fx:id="logoImageView" fitHeight="55.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                                       <FlowPane.margin>
+                                          <Insets right="50.0" />
+                                       </FlowPane.margin>
+                                    </ImageView>
+                                    <ComboBox fx:id="mealTypeCombobox" prefWidth="150.0">
+                                       <FlowPane.margin>
+                                          <Insets />
+                                       </FlowPane.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="cousineTypeCombobox" prefWidth="150.0" />
+                                    <ComboBox fx:id="difficultyLevelCombobox" prefWidth="150.0">
+                                       <FlowPane.margin>
+                                          <Insets right="300.0" />
+                                       </FlowPane.margin>
+                                    </ComboBox>
+                                    <Button fx:id="logoutButton" mnemonicParsing="false" text="Wyloguj" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <SplitPane dividerPositions="0.7648327939590076" layoutX="492.0" layoutY="81.0" prefHeight="482.0" prefWidth="929.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TilePane fx:id="recipecTilePane" layoutX="253.0" layoutY="102.0" prefHeight="480.0" prefWidth="706.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="70.0" layoutY="92.0" prefHeight="480.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ListView fx:id="productsListView" prefHeight="430.0" prefWidth="215.0" />
+                                          <Button fx:id="modifyButton" mnemonicParsing="false" text="Modyfikuj listę produktów">
+                                             <VBox.margin>
+                                                <Insets left="34.0" top="12.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

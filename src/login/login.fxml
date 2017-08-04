@@ -20,8 +20,8 @@
               <children>
                 <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <TextField fx:id="user" promptText="Use &quot;open&quot; to login" text="open" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <TextField fx:id="password" promptText="Use &quot;sesame&quot; to login" text="sesame" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="user" promptText="Use &quot;open&quot; to login" text="domKlaudii" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="password" promptText="Use &quot;sesame&quot; to login" text="haslo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Register" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
               </children>
               <columnConstraints>

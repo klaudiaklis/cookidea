@@ -12,6 +12,15 @@ import register.RegisterController;
 /** Manages control flow for logins */
 public class LoginManager {
 	private Scene scene;
+	private String user;
+
+	public String getUser() {
+		return user;
+	}
+
+	public Scene getScene() {
+		return scene;
+	}
 
 	public LoginManager(Scene scene) {
 		this.scene = scene;
@@ -22,6 +31,7 @@ public class LoginManager {
 	 * Will show the adding products screen.
 	 */
 	public void authenticated(String user) {
+		this.user = user;
 		showAddingProductsView(user);
 	}
 
@@ -68,5 +78,10 @@ public class LoginManager {
 		} catch (IOException ex) {
 			Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
 		}
+	}
+
+	public void authenticated() {
+		authenticated(user);
+		
 	}
 }
