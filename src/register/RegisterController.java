@@ -1,8 +1,8 @@
 package register;
 
 import allerts.Alerts;
-import dao.IUserDao;
-import dao.UserDao;
+import dao.IHouseholdDao;
+import dao.HouseholdDao;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,10 +27,10 @@ public class RegisterController {
 	private Button confirmButton;
 	@FXML
 	private Button cancelButton;
-	private IUserDao userDao;
+	private IHouseholdDao userDao;
 
 	public void initView(LoginManager loginManager) {
-		userDao = new UserDao();
+		userDao = new HouseholdDao();
 		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -46,7 +46,9 @@ public class RegisterController {
 				} else if (arePasswordsDifferent()) {
 					alertAboutDifferentPasswords();
 				} else {
-					userDao.registerUser(user.getText(), password.getText());
+					if(!userDao.registerHousehold(user.getText(), password.getText())){
+						Alerts.errorAlert("Household was not saved succesfully!");
+					}
 				}
 			}
 		});

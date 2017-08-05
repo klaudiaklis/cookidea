@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="130.0" maxWidth="300.0" minHeight="130.0" minWidth="300.0" prefHeight="130.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="login.LoginController">
+<StackPane maxHeight="130.0" maxWidth="300.0" minHeight="130.0" minWidth="300.0" prefHeight="130.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
   <children>
     <StackPane>
       <children>
@@ -21,8 +22,8 @@
                 <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                 <TextField fx:id="user" promptText="Use &quot;open&quot; to login" text="domKlaudii" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <TextField fx:id="password" promptText="Use &quot;sesame&quot; to login" text="haslo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Register" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                        <PasswordField fx:id="password" promptText="provide password" text="haslo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="109.0" />

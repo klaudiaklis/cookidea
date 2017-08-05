@@ -79,7 +79,6 @@ public class AddingProductsController {
 		} catch (IOException ex) {
 			Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
 	}
 
 	private void initializeTilePane(ProductCategoryEnum productCategory) {

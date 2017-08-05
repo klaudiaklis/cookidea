@@ -68,6 +68,11 @@ CREATE TABLE cousineType (
 	name VARCHAR(50)
 );
 
+CREATE TABLE difficultyLevel (
+	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+	name VARCHAR(50)
+);
+
 CREATE TABLE recipe (
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
 	name VARCHAR(500), 
@@ -76,9 +81,10 @@ CREATE TABLE recipe (
 	mealTypeId INTEGER NOT NULL, 
 	cousineTypeId INTEGER NOT NULL,  
 	portions INTEGER NOT NULL,
-	difficultyLevel INTEGER NOT NULL,
+	difficultyLevelId INTEGER NOT NULL,
 	FOREIGN KEY(mealTypeId) REFERENCES mealType(id), 
-	FOREIGN KEY(cousineTypeId) REFERENCES cousineType(id)
+	FOREIGN KEY(cousineTypeId) REFERENCES cousineType(id),
+	FOREIGN KEY(difficultyLevelId) REFERENCES difficultyLevel(id)
 );
 
 CREATE TABLE liquidProductRecipe (
@@ -93,7 +99,7 @@ CREATE TABLE liquidProductRecipe (
 CREATE TABLE countableProductRecipe (
 	countableProductId INTEGER NOT NULL,
 	recipeId INTEGER NOT NULL,
-	volume DOUBLE, 
+	amount DOUBLE, 
 	PRIMARY KEY(countableProductId,recipeId),
 	FOREIGN KEY(countableProductId) REFERENCES countableProduct(id),
 	FOREIGN KEY(recipeId) REFERENCES recipe(id)
@@ -102,7 +108,7 @@ CREATE TABLE countableProductRecipe (
 CREATE TABLE uncountableProductRecipe (
 	uncountableProductId INTEGER NOT NULL,
 	recipeId INTEGER NOT NULL,
-	volume DOUBLE, 
+	weight DOUBLE, 
 	PRIMARY KEY(uncountableProductId,recipeId),
 	FOREIGN KEY(uncountableProductId) REFERENCES uncountableProduct(id),
 	FOREIGN KEY(recipeId) REFERENCES recipe(id)
@@ -238,12 +244,16 @@ INSERT INTO cousineType VALUES(default, 'Czech');
 INSERT INTO cousineType VALUES(default, 'French');
 INSERT INTO cousineType VALUES(default, 'Asian');
 
-INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę. Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek. Podsmażamy na niewielkim ogniu, co chwilę mieszając. Następnie dodajemy mięso mielone i smażymy do zarumienienia. Dolewamy wino i gotujemy, aż alkohol odparuje. Następnie dodajemy pomidory pelati. Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii. W dużym garnku zagotowujemy wodę. Do gotującej się wody dodajemy sól i makaron. Gotujemy al dente według wskazań na opakowaniu. Makaron odcedzamy przez sito. Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu. Ugotowany makaron dokładnie mieszamy z sosem. Makaron z sosem przekładamy na talerz. Wierzch posypujemy startym parmezanem. Dekorujemy listkami świeżej bazylii.', 60,3, 3, 4, 4);
-INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle. Do cebuli dodajemy suchy ryż, całość mieszamy. Wino mieszamy z musztardą i wlewamy na patelnię. Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając. Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy. Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu. Czynność powtarzamy, aż cały bulion zostanie dodany. Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi. Przyprawiamy do smaku solą i pieprzem.',60, 3, 3, 4, 3);
-INSERT INTO recipe VALUES(default, 'Doves', 'Mięso włożyć do większej miski. Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa. Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem. Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki). Wszystko wymieszać i dobrze wyrobić dłonią. Uformować niewielkie podłużne kotlety. Czytaj dalej...',90, 3, 1, 6, 5);
-INSERT INTO recipe VALUES(default, 'Burgers', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem. Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min. Pozostałe warzywa pokroić. Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 30,2, 2, 6, 2);
-INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej. Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem. Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę. Piecz 25 minut w temperaturze 180 stopni.',40, 1, 2, 6, 2);
-INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany. Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron. Podawać z owocami',20, 4, 2, 24, 2);
+INSERT INTO difficultyLevel VALUES(default, 'Easy');
+INSERT INTO difficultyLevel VALUES(default, 'Medium');
+INSERT INTO difficultyLevel VALUES(default, 'Hard');
+
+INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę. Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek. Podsmażamy na niewielkim ogniu, co chwilę mieszając. Następnie dodajemy mięso mielone i smażymy do zarumienienia. Dolewamy wino i gotujemy, aż alkohol odparuje. Następnie dodajemy pomidory pelati. Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii. W dużym garnku zagotowujemy wodę. Do gotującej się wody dodajemy sól i makaron. Gotujemy al dente według wskazań na opakowaniu. Makaron odcedzamy przez sito. Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu. Ugotowany makaron dokładnie mieszamy z sosem. Makaron z sosem przekładamy na talerz. Wierzch posypujemy startym parmezanem. Dekorujemy listkami świeżej bazylii.', 60,3, 3, 4, 2);
+INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle. Do cebuli dodajemy suchy ryż, całość mieszamy. Wino mieszamy z musztardą i wlewamy na patelnię. Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając. Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy. Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu. Czynność powtarzamy, aż cały bulion zostanie dodany. Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi. Przyprawiamy do smaku solą i pieprzem.',60, 3, 3, 4, 2);
+INSERT INTO recipe VALUES(default, 'Doves', 'Mięso włożyć do większej miski. Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa. Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem. Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki). Wszystko wymieszać i dobrze wyrobić dłonią. Uformować niewielkie podłużne kotlety. Czytaj dalej...',90, 3, 1, 6, 3);
+INSERT INTO recipe VALUES(default, 'Burgers', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem. Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min. Pozostałe warzywa pokroić. Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 30,2, 2, 6, 1);
+INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej. Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem. Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę. Piecz 25 minut w temperaturze 180 stopni.',40, 1, 2, 6, 1);
+INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany. Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron. Podawać z owocami',20, 4, 2, 24, 1);
 INSERT INTO recipe VALUES(default, 'Fruits salat', 'Wszystkie owoce umyć, obrać i pokroić w kostkę. Wydusić sok z jednej limonki i wymieszać delikatnie wszystko. Schłodzić przed podaniem. ',10, 5, 1, 2, 1);
 
 

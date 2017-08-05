@@ -1,7 +1,7 @@
 package login;
 
-import dao.IUserDao;
-import dao.UserDao;
+import dao.IHouseholdDao;
+import dao.HouseholdDao;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -49,8 +49,8 @@ public class LoginController {
 	 * null.
 	 */
 	private String authorize() {
-		IUserDao userDao = new UserDao();
-		Household householdByUser = userDao.getHouseholdByUser(user.getText());
+		IHouseholdDao userDao = new HouseholdDao();
+		Household householdByUser = userDao.getHouseholdByName(user.getText());
 		if (householdByUser == null) {
 			return null;
 		}
