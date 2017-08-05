@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import login.LoginManager;
+import security.Md5;
 
 /**
  * Controls the register screen
@@ -46,7 +47,7 @@ public class RegisterController {
 				} else if (arePasswordsDifferent()) {
 					alertAboutDifferentPasswords();
 				} else {
-					if(!userDao.registerHousehold(user.getText(), password.getText())){
+					if(!userDao.registerHousehold(user.getText(), Md5.hash(password.getText()))){
 						Alerts.errorAlert("Household was not saved succesfully!");
 					}
 				}

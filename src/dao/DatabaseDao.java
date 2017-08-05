@@ -29,8 +29,19 @@ public class DatabaseDao implements IDatabaseDao {
 
 	@Override
 	public boolean saveHousehold(String name, String password) {
-		System.out.println("User saved!");
-		return true;
+		try (Connection conn = DriverManager.getConnection(COOOKIDEA_CONNECTION_STRING)) {
+			PreparedStatement prepareStatement = conn.prepareStatement("INSERT INTO household VALUES(default, ?, ?)");
+			prepareStatement.setString(1, name);
+			prepareStatement.setString(2, password);
+			int executeUpdate = prepareStatement.executeUpdate();
+			if (executeUpdate == 1) {
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
