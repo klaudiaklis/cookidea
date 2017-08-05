@@ -6,6 +6,7 @@ import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.Household;
+import security.Md5;
 
 /** Controls the login screen */
 public class LoginController {
@@ -55,6 +56,6 @@ public class LoginController {
 			return null;
 		}
 		return householdByUser.getName().equals(user.getText())
-				&& householdByUser.getPassword().equals(password.getText()) ? user.getText() : null;
+				&& householdByUser.getPassword().equals(Md5.hash(password.getText())) ? user.getText() : null;
 	}
 }
