@@ -1,6 +1,8 @@
 package model;
 
-public class Recipe {
+import java.util.List;
+
+public class Recipe  {
 	private int id;
 	private String name;
 	private String description;
@@ -9,9 +11,11 @@ public class Recipe {
 	private int portions;
 	private int difficultyLevelId;
 	private int duration;
+	private List<Product> products;
+	private int matchingCounter = 0;
 	
 	public Recipe(int id, String name, String description, int duration, int mealTypeId, int cousineTypeId, int portions,
-			int difficultyLevelId) {
+			int difficultyLevelId, List<Product> products) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -46,6 +50,20 @@ public class Recipe {
 	public int getDifficultyLevelId() {
 		return difficultyLevelId;
 	}
-	
-	
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	public int getMatchingCounter() {
+		return matchingCounter;
+	}
+	public void increaseCounter() {
+		matchingCounter++;
+	}
+
+	public void clearCounter() {
+		matchingCounter = 0;
+	}
 }

@@ -2,8 +2,8 @@ package model;
 
 public class LiquidProduct extends Product {
 	private double volume;
-	public LiquidProduct(int id, String name, double volume) {
-		super(id, name);
+	public LiquidProduct(int id, String name, double volume, ProductCategoryEnum category) {
+		super(id, name, category);
 		this.volume = volume;
 	}
 	public double getVolume() {
@@ -13,4 +13,10 @@ public class LiquidProduct extends Product {
 	public String getAmountString() {
 		return "" + volume + " ml";
 	}
+	@Override
+	public String getTableName() {
+		return "liquidProduct";
+	}
+	
+	
 }

@@ -25,4 +25,12 @@ public interface IDatabaseDao {
 
 	List<Product> getProductsByRecipeId(int id);
 
+	List<Product> getAllProducts();
+
+	boolean addProductForHousehold(Product addedProduct, int householdId, String tableName);
+
+	List<Product> getProductsByHouseholdId(int id);
+
+	boolean remove(Product selectedProduct, int householdId);
+
 }

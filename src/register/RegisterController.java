@@ -50,6 +50,7 @@ public class RegisterController {
 					if(!userDao.registerHousehold(user.getText(), Md5.hash(password.getText()))){
 						Alerts.errorAlert("Household was not saved succesfully!");
 					}
+					loginManager.logout();
 				}
 			}
 		});

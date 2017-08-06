@@ -1,6 +1,7 @@
 package login;
 
 import dao.IHouseholdDao;
+import allerts.Alerts;
 import dao.HouseholdDao;
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -19,14 +20,11 @@ public class LoginController {
 	@FXML
 	private Button registerButton;
 
-	public void initialize() {
-	}
-
 	public void initManager(final LoginManager loginManager) {
 		loginButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				String user = authorize();
+				Household user = authorize();
 				if (user != null) {
 					loginManager.authenticated(user);
 				}
@@ -49,13 +47,18 @@ public class LoginController {
 	 * If accepted, return a username for the authorized user otherwise, return
 	 * null.
 	 */
-	private String authorize() {
+	private Household authorize() {
 		IHouseholdDao userDao = new HouseholdDao();
 		Household householdByUser = userDao.getHouseholdByName(user.getText());
 		if (householdByUser == null) {
+			Alerts.errorAlert("Wrong credentialls!");
 			return null;
 		}
-		return householdByUser.getName().equals(user.getText())
-				&& householdByUser.getPassword().equals(Md5.hash(password.getText())) ? user.getText() : null;
+		boolean credentiallsOk = householdByUser.getName().equals(user.getText())
+				&& householdByUser.getPassword().equals(Md5.hash(password.getText()));
+		if (!credentiallsOk) {
+			Alerts.errorAlert("Wrong credentialls!");
+		}
+		return credentiallsOk ? householdByUser : null;
 	}
 }

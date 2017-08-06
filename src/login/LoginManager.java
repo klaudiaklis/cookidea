@@ -4,15 +4,18 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import addingproduct.AddingProductsController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import model.Household;
 import register.RegisterController;
 
 /** Manages control flow for logins */
 public class LoginManager {
 	private Scene scene;
 	private String user;
+	private Household household;
 
 	public String getUser() {
 		return user;
@@ -30,8 +33,9 @@ public class LoginManager {
 	 * Callback method invoked to notify that a user has been authenticated.
 	 * Will show the adding products screen.
 	 */
-	public void authenticated(String user) {
-		this.user = user;
+	public void authenticated(Household household) {
+		this.user = household.getName();
+		this.household = household;
 		showAddingProductsView(user);
 	}
 
@@ -56,7 +60,7 @@ public class LoginManager {
 
 	private void showAddingProductsView(String user) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AddingProductsView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/addingproduct/AddingProductsView.fxml"));
 			scene.setRoot((Parent) loader.load());
 			AddingProductsController controller = loader.<AddingProductsController>getController();
 			controller.initView(this, user);
@@ -81,7 +85,11 @@ public class LoginManager {
 	}
 
 	public void authenticated() {
-		authenticated(user);
+		authenticated(household);
 		
+	}
+
+	public Household getHousehold() {
+		return household;
 	}
 }

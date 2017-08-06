@@ -2,8 +2,8 @@ package model;
 
 public class CountableProduct extends Product {
 	private int amount;
-	public CountableProduct(int id, String name, int amount) {
-		super(id, name);
+	public CountableProduct(int id, String name, int amount, ProductCategoryEnum category) {
+		super(id, name, category);
 		this.amount = amount;
 	}
 	public int getAmount() {
@@ -12,5 +12,9 @@ public class CountableProduct extends Product {
 	@Override
 	public String getAmountString() {
 		return "" + amount;
+	}
+	@Override
+	public String getTableName() {
+		return "countableProduct";
 	}
 }
