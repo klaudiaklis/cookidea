@@ -134,7 +134,7 @@ public class AddingProductsController {
 
 	protected void showMainView(LoginManager loginManager) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/mainView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/mainView2.fxml"));
 			loginManager.getScene().setRoot((Parent) loader.load());
 			MainViewController controller = loader.<MainViewController>getController();
 			controller.initView(loginManager);
@@ -179,13 +179,17 @@ public class AddingProductsController {
 				final Stage dialog = new Stage();
 				dialog.initModality(Modality.APPLICATION_MODAL);
 				VBox dialogVbox = new VBox(20);
-				dialogVbox.getChildren().add(new Text("Adding " + product.getName()));
+				dialogVbox.getChildren().add(new Text("\n   Wprowadź ilość produktu - " + product.getName()));
 				TextField howManyTextField = new TextField("");
 				Label unitLabel = new Label(getLabelProductType(product));
-				dialogVbox.getChildren().add(new FlowPane(howManyTextField, unitLabel));
+				
+				FlowPane howManyTextAreaWithUnit = new FlowPane(howManyTextField, unitLabel);
+				VBox.setMargin(howManyTextAreaWithUnit, new Insets(0,0,0,10));
+				dialogVbox.getChildren().add(howManyTextAreaWithUnit);
 				Button okButton = new Button("Ok");
 				dialogVbox.getChildren().add(okButton);
-				Scene dialogScene = new Scene(dialogVbox, 300, 200);
+				VBox.setMargin(okButton, new Insets(0,0,0,250));
+				Scene dialogScene = new Scene(dialogVbox, 300, 130);
 				dialog.setScene(dialogScene);
 				okButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -201,6 +205,9 @@ public class AddingProductsController {
 			private void addProductToHousehold(Product product, String howMany, Household household) {
 				Product addedProduct = product;
 				String productTableName = "";
+				if (howMany == null || howMany.isEmpty()) {
+					return;
+				}
 				if (product instanceof BinaryProduct) {
 					addedProduct = new BinaryProduct(product.getId(), product.getName(), true, product.getCategory());
 					productTableName = "binaryProduct";

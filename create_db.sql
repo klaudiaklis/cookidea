@@ -159,8 +159,10 @@ CREATE TABLE binaryProductHousehold(
 
 select 'This is a comment' AS '';
 
+INSERT INTO household VALUES(default, 'dom', 'haslo');
+
 INSERT INTO countableProductCategory VALUES(default, 'Fruits');
-INSERT INTO countableProductCategory VALUES(default, 'Vegetagles');
+INSERT INTO countableProductCategory VALUES(default, 'Vegetables');
 INSERT INTO countableProductCategory VALUES(default, 'Dairy');
 INSERT INTO countableProductCategory VALUES(default, 'Bread');
 INSERT INTO countableProductCategory VALUES(default, 'Sweets');
@@ -179,57 +181,55 @@ INSERT INTO liquidProductCategory VALUES(default, 'Alcohols');
 INSERT INTO binaryProductCategory VALUES(default, 'Spices');
 INSERT INTO binaryProductCategory VALUES(default, 'Sauce');
 
-INSERT INTO household VALUES(default,'domKlaudii','haslo');
-
-INSERT INTO countableProduct VALUES(default, 'tomato', 2);
-INSERT INTO countableProduct VALUES(default, 'carrot', 2);
-INSERT INTO countableProduct VALUES(default, 'parsley', 2);
-INSERT INTO countableProduct VALUES(default, 'celery', 2);
-INSERT INTO countableProduct VALUES(default, 'onion', 2);
-INSERT INTO countableProduct VALUES(default, 'garlic', 2);
-INSERT INTO countableProduct VALUES(default, 'cabbage', 2);
-INSERT INTO countableProduct VALUES(default, 'egg', 3);
-INSERT INTO countableProduct VALUES(default, 'roll', 4);
-INSERT INTO countableProduct VALUES(default, 'Iceberg lettuce', 2);
-INSERT INTO countableProduct VALUES(default, 'cucumber', 2);
-INSERT INTO countableProduct VALUES(default, 'dark chockolate', 5);
-INSERT INTO countableProduct VALUES(default, 'white chockolate', 5);
-INSERT INTO countableProduct VALUES(default, 'banana', 1);
+INSERT INTO countableProduct VALUES(default, 'pomidory', 2);
+INSERT INTO countableProduct VALUES(default, 'marchewka', 2);
+INSERT INTO countableProduct VALUES(default, 'pietruszka', 2);
+INSERT INTO countableProduct VALUES(default, 'seler', 2);
+INSERT INTO countableProduct VALUES(default, 'cebula', 2);
+INSERT INTO countableProduct VALUES(default, 'czosnek', 2);
+INSERT INTO countableProduct VALUES(default, 'kapusta', 2);
+INSERT INTO countableProduct VALUES(default, 'jajka', 3);
+INSERT INTO countableProduct VALUES(default, 'bulki', 4);
+INSERT INTO countableProduct VALUES(default, 'salata lodowa', 2);
+INSERT INTO countableProduct VALUES(default, 'ogorki', 2);
+INSERT INTO countableProduct VALUES(default, 'gorzka czekolada', 5);
+INSERT INTO countableProduct VALUES(default, 'biala czekolada', 5);
+INSERT INTO countableProduct VALUES(default, 'banany', 1);
 INSERT INTO countableProduct VALUES(default, 'kiwi', 1);
-INSERT INTO countableProduct VALUES(default, 'strawberry', 1);
-INSERT INTO countableProduct VALUES(default, 'apple', 1);
-INSERT INTO countableProduct VALUES(default, 'orange', 1);
-INSERT INTO countableProduct VALUES(default, 'lemon', 1);
-INSERT INTO countableProduct VALUES(default, 'raspberry', 1);
+INSERT INTO countableProduct VALUES(default, 'truskawki', 1);
+INSERT INTO countableProduct VALUES(default, 'jablka', 1);
+INSERT INTO countableProduct VALUES(default, 'pomarancze', 1);
+INSERT INTO countableProduct VALUES(default, 'cytryny', 1);
+INSERT INTO countableProduct VALUES(default, 'maliny', 1);
 
-INSERT INTO uncountableProduct VALUES(default,'pasta spaghetti', 4);
-INSERT INTO uncountableProduct VALUES(default, 'beef', 1);
-INSERT INTO uncountableProduct VALUES(default, 'cheese Grana Padano', 5);
-INSERT INTO uncountableProduct VALUES(default, 'rice', 4);
-INSERT INTO uncountableProduct VALUES(default, 'butter', 5);
-INSERT INTO uncountableProduct VALUES(default, 'cheese Cheddar', 5);
-INSERT INTO uncountableProduct VALUES(default, 'chicken', 1);
-INSERT INTO uncountableProduct VALUES(default, 'pork chop', 1);
-INSERT INTO uncountableProduct VALUES(default, 'becon', 1);
-INSERT INTO uncountableProduct VALUES(default, 'sugar', 6);
-INSERT INTO uncountableProduct VALUES(default, 'flour', 4);
-INSERT INTO uncountableProduct VALUES(default, 'Mascarpone cheese', 5);
+INSERT INTO uncountableProduct VALUES(default,'makaron spaghetti', 4);
+INSERT INTO uncountableProduct VALUES(default, 'wolowina', 1);
+INSERT INTO uncountableProduct VALUES(default, 'ser Grana Padano', 5);
+INSERT INTO uncountableProduct VALUES(default, 'ryz', 4);
+INSERT INTO uncountableProduct VALUES(default, 'maslo', 5);
+INSERT INTO uncountableProduct VALUES(default, 'ser Cheddar', 5);
+INSERT INTO uncountableProduct VALUES(default, 'kurczak', 1);
+INSERT INTO uncountableProduct VALUES(default, 'schab', 1);
+INSERT INTO uncountableProduct VALUES(default, 'boczek', 1);
+INSERT INTO uncountableProduct VALUES(default, 'cukier', 6);
+INSERT INTO uncountableProduct VALUES(default, 'maka pszenna', 4);
+INSERT INTO uncountableProduct VALUES(default, 'serek Mascarpone', 5);
 
-INSERT INTO liquidProduct VALUES(default, 'olive oil', 2);
-INSERT INTO liquidProduct VALUES(default, 'red wine', 3);
-INSERT INTO liquidProduct VALUES(default, 'white wine', 3);
-INSERT INTO liquidProduct VALUES(default, 'buttermilk', 1);
-INSERT INTO liquidProduct VALUES(default, 'milk', 1);
+INSERT INTO liquidProduct VALUES(default, 'oliwa z oliwek', 2);
+INSERT INTO liquidProduct VALUES(default, 'czerwone wino', 3);
+INSERT INTO liquidProduct VALUES(default, 'biale wino', 3);
+INSERT INTO liquidProduct VALUES(default, 'maslanka', 1);
+INSERT INTO liquidProduct VALUES(default, 'mleko', 1);
 
-INSERT INTO binaryProduct VALUES(default, 'bay leaf', 1);
-INSERT INTO binaryProduct VALUES(default, 'black pepper', 1);
-INSERT INTO binaryProduct VALUES(default, 'salt', 1);
-INSERT INTO binaryProduct VALUES(default, 'allspice', 1);
-INSERT INTO binaryProduct VALUES(default, 'basil', 1);
+INSERT INTO binaryProduct VALUES(default, 'lisc laurowy', 1);
+INSERT INTO binaryProduct VALUES(default, 'pieprz ziarnisty', 1);
+INSERT INTO binaryProduct VALUES(default, 'sol', 1);
+INSERT INTO binaryProduct VALUES(default, 'galka muszkatalowa', 1);
+INSERT INTO binaryProduct VALUES(default, 'bazylia', 1);
 INSERT INTO binaryProduct VALUES(default, 'oregano', 1);
 INSERT INTO binaryProduct VALUES(default, 'ketchup', 2);
-INSERT INTO binaryProduct VALUES(default, 'Barbecue sauce', 2);
-INSERT INTO binaryProduct VALUES(default, 'Tomato pasado', 2);
+INSERT INTO binaryProduct VALUES(default, 'Barbecue sos', 2);
+INSERT INTO binaryProduct VALUES(default, 'Passata pomidorowa', 2);
 
 INSERT INTO mealType VALUES(default, 'Breakfast');
 INSERT INTO mealType VALUES(default, 'Lunch');
@@ -237,7 +237,7 @@ INSERT INTO mealType VALUES(default, 'Dinner');
 INSERT INTO mealType VALUES(default, 'Dessert');
 INSERT INTO mealType VALUES(default, 'Supper');
 
-INSERT INTO cousineType VALUES(default, 'Poland');
+INSERT INTO cousineType VALUES(default, 'Polish');
 INSERT INTO cousineType VALUES(default, 'American');
 INSERT INTO cousineType VALUES(default, 'Italian');
 INSERT INTO cousineType VALUES(default, 'Czech');
@@ -248,13 +248,53 @@ INSERT INTO difficultyLevel VALUES(default, 'Easy');
 INSERT INTO difficultyLevel VALUES(default, 'Medium');
 INSERT INTO difficultyLevel VALUES(default, 'Hard');
 
-INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę. Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek. Podsmażamy na niewielkim ogniu, co chwilę mieszając. Następnie dodajemy mięso mielone i smażymy do zarumienienia. Dolewamy wino i gotujemy, aż alkohol odparuje. Następnie dodajemy pomidory pelati. Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii. W dużym garnku zagotowujemy wodę. Do gotującej się wody dodajemy sól i makaron. Gotujemy al dente według wskazań na opakowaniu. Makaron odcedzamy przez sito. Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu. Ugotowany makaron dokładnie mieszamy z sosem. Makaron z sosem przekładamy na talerz. Wierzch posypujemy startym parmezanem. Dekorujemy listkami świeżej bazylii.', 60,3, 3, 4, 2);
-INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle. Do cebuli dodajemy suchy ryż, całość mieszamy. Wino mieszamy z musztardą i wlewamy na patelnię. Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając. Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy. Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu. Czynność powtarzamy, aż cały bulion zostanie dodany. Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi. Przyprawiamy do smaku solą i pieprzem.',60, 3, 3, 4, 2);
-INSERT INTO recipe VALUES(default, 'Doves', 'Mięso włożyć do większej miski. Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa. Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem. Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki). Wszystko wymieszać i dobrze wyrobić dłonią. Uformować niewielkie podłużne kotlety. Czytaj dalej...',90, 3, 1, 6, 3);
-INSERT INTO recipe VALUES(default, 'Burgers', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem. Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min. Pozostałe warzywa pokroić. Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 30,2, 2, 6, 1);
-INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej. Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem. Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę. Piecz 25 minut w temperaturze 180 stopni.',40, 1, 2, 6, 1);
-INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany. Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron. Podawać z owocami',20, 4, 2, 24, 1);
-INSERT INTO recipe VALUES(default, 'Fruits salat', 'Wszystkie owoce umyć, obrać i pokroić w kostkę. Wydusić sok z jednej limonki i wymieszać delikatnie wszystko. Schłodzić przed podaniem. ',10, 5, 1, 2, 1);
+INSERT INTO recipe VALUES(default, 'Spaghetti bolognese','Na patelnię wlewamy oliwę.
+Od razu dodajemy warzywa: pokrojoną w kostkę marchewkę, cebulę, seler naciowy oraz przeciśnięty przez praskę czosnek.
+Podsmażamy na niewielkim ogniu, co chwilę mieszając.
+Następnie dodajemy mięso mielone i smażymy do zarumienienia.
+Dolewamy wino i gotujemy, aż alkohol odparuje.
+Następnie dodajemy pomidory pelati.
+Doprawiamy solą, pieprzem, niewielką ilością cukru oraz porwanymi listkami bazylii.
+W dużym garnku zagotowujemy wodę.
+Do gotującej się wody dodajemy sól i makaron.
+Gotujemy al dente według wskazań na opakowaniu.
+Makaron odcedzamy przez sito.
+Niewielką ilość wody, w której gotował się makaron, wlewamy do sosu.
+Ugotowany makaron dokładnie mieszamy z sosem.
+Makaron z sosem przekładamy na talerz.
+Wierzch posypujemy startym parmezanem.
+Dekorujemy listkami świeżej bazylii.', 60,3, 3, 4, 2);
+INSERT INTO recipe VALUES(default, 'Risotto','Dymkę (bez szczypioru) drobno siekamy i szklimy na rozgrzanym maśle.
+Do cebuli dodajemy suchy ryż, całość mieszamy.
+Wino mieszamy z musztardą i wlewamy na patelnię.
+Smażymy na dużym ogniu, aż ryż wchłonie wino, nieustannie mieszając.
+Do ryżu dodajemy szklankę ugotowanego bulionu z kurczaka, mieszamy.
+Gdy ryż wchłonie płyn, dodajemy kolejną szklankę bulionu.
+Czynność powtarzamy, aż cały bulion zostanie dodany.
+Gdy ryż będzie już lekko ugotowany, dodajemy starty na tarce cheddar i mieszamy, aż ser się roztopi.
+Przyprawiamy do smaku solą i pieprzem.',60, 3, 3, 4, 2);
+INSERT INTO recipe VALUES(default, 'Golabki', 'Mięso włożyć do większej miski.
+Ryż ugotować, przelać zimną wodą na sicie, odsączyć i wystudzony dodać do mięsa.
+Cebulę obrać, zetrzeć na tarce, dodać do mięsa z ryżem.
+Doprawić solą (około pół łyżeczki), pieprzem (1/4 łyżeczki).
+Wszystko wymieszać i dobrze wyrobić dłonią.
+Uformować niewielkie podłużne kotlety.
+Czytaj dalej...',90, 3, 1, 6, 3);
+INSERT INTO recipe VALUES(default, 'Burgery', 'Mięso zmielić, wymieszać z cebulą i doprawić solą i pieprzem.
+Uformować kotlety i smażyć razem z boczkiem na patelni grilowej przez 20min.
+Pozostałe warzywa pokroić.
+Na podgrzane bułki ułożyć kolejno mięso, warzywa i udekorować sosem', 30,2, 2, 6, 1);
+INSERT INTO recipe VALUES(default, 'Brownie', 'Rozpuścić masło, czekoladę i cukier w kąpieli wodnej.
+Jajka roztrzep w misce jak na jajecznicę, dodaj mąkę, wymieszaj rózgą lub mikserem.
+Cały czas mieszając, wolnym strumieniem wlewaj do jajek czekoladę.
+Piecz 25 minut w temperaturze 180 stopni.',40, 4, 2, 6, 1);
+INSERT INTO recipe VALUES(default, 'Pancakes', 'W blenderze zmiksować wszystkie składniki na gładką masę o konsystencji gęstej śmietany.
+Rozgrzać patelnię i na średnim ogniu smażyć pancakes z dwóch stron.
+Podawać z owocami',20, 4, 2, 24, 1);
+INSERT INTO recipe VALUES(default, 'Salatka owocowa', 'Wszystkie owoce umyć, obrać i pokroić w kostkę.
+Wydusić sok z jednej limonki, dodac do owoców i wymieszać delikatnie.
+Schłodzić przed podaniem.
+',10, 5, 1, 2, 1);
 
 
 INSERT INTO countableProductRecipe VALUES(2, 1, 2);
@@ -311,6 +351,14 @@ INSERT INTO liquidProductRecipe VALUES(4, 6, 250);
 INSERT INTO binaryProductRecipe VALUES(3, 6);
 INSERT INTO binaryProductRecipe VALUES(4, 6);
 
+INSERT INTO countableProductRecipe VALUES(14, 7, 1);
+INSERT INTO countableProductRecipe VALUES(15, 7, 10);
+INSERT INTO countableProductRecipe VALUES(16, 7, 1);
+INSERT INTO countableProductRecipe VALUES(17, 7, 1);
+INSERT INTO countableProductRecipe VALUES(18, 7, 1);
+INSERT INTO countableProductRecipe VALUES(19, 7, 1);
+
+
 INSERT INTO countableProductHousehold VALUES(1, 1, 5);
 INSERT INTO countableProductHousehold VALUES(2, 1, 1);
 INSERT INTO countableProductHousehold VALUES(4, 1, 2);
@@ -346,6 +394,7 @@ INSERT INTO binaryProductHousehold VALUES(6, 1);
 INSERT INTO binaryProductHousehold VALUES(7, 1);
 INSERT INTO binaryProductHousehold VALUES(8, 1);
 INSERT INTO binaryProductHousehold VALUES(9, 1);
+
 
 
 

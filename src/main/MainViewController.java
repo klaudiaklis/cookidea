@@ -109,7 +109,7 @@ public class MainViewController {
 				@Override
 				public void handle(Event event) {
 					try {
-						FXMLLoader loader = new FXMLLoader(getClass().getResource("/recipe/recipeView.fxml"));
+						FXMLLoader loader = new FXMLLoader(getClass().getResource("/recipe/recipeView2.fxml"));
 						loginManager.getScene().setRoot((Parent) loader.load());
 						RecipeViewController controller = loader.<RecipeViewController>getController();
 						controller.initView(recipe, recipeImage, loginManager);

@@ -75,7 +75,7 @@ public class RecipeViewController {
 
 	protected void showMainView(LoginManager loginManager) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/mainView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/mainView2.fxml"));
 			loginManager.getScene().setRoot((Parent) loader.load());
 			MainViewController controller = loader.<MainViewController>getController();
 			controller.initView(loginManager);

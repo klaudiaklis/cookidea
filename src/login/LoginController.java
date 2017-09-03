@@ -18,7 +18,7 @@ public class LoginController {
 	@FXML
 	private Button loginButton;
 	@FXML
-	private Button registerButton;
+	private Hyperlink registerButton;
 
 	public void initManager(final LoginManager loginManager) {
 		loginButton.setOnAction(new EventHandler<ActionEvent>() {

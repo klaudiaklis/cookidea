@@ -49,7 +49,7 @@ public class LoginManager {
 
 	public void showLoginScreen() {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("login2.fxml"));
 			scene.setRoot((Parent) loader.load());
 			LoginController controller = loader.<LoginController>getController();
 			controller.initManager(this);
@@ -60,7 +60,7 @@ public class LoginManager {
 
 	private void showAddingProductsView(String user) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/addingproduct/AddingProductsView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/addingproduct/AddingProductsView2.fxml"));
 			scene.setRoot((Parent) loader.load());
 			AddingProductsController controller = loader.<AddingProductsController>getController();
 			controller.initView(this, user);
@@ -75,7 +75,7 @@ public class LoginManager {
 
 	private void showRegisterView() {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/register/register.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/register/register2.fxml"));
 			scene.setRoot((Parent) loader.load());
 			RegisterController controller = loader.<RegisterController>getController();
 			controller.initView(this);

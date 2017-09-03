@@ -48,7 +48,7 @@ public class RegisterController {
 					alertAboutDifferentPasswords();
 				} else {
 					if(!userDao.registerHousehold(user.getText(), Md5.hash(password.getText()))){
-						Alerts.errorAlert("Household was not saved succesfully!");
+						Alerts.errorAlert("Użytkownik nie został poprawnie dodany!");
 					}
 					loginManager.logout();
 				}
@@ -62,7 +62,7 @@ public class RegisterController {
 	}
 
 	protected void alertAboutNotAllDataFilledIn() {
-		String allertContent = "Not all data filled in!";
+		String allertContent = "Uzupełnij wszystkie dane!";
 		Alerts.errorAlert(allertContent);
 	}
 
@@ -71,7 +71,7 @@ public class RegisterController {
 	}
 
 	protected void alertAboutDifferentPasswords() {
-		String allertContent = "Passwords are not equal!";
+		String allertContent = "Hasła nie są takie same!";
 		Alerts.errorAlert(allertContent);
 	}
 }

@@ -21,9 +21,9 @@
               <children>
                 <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <TextField fx:id="user" promptText="Use &quot;open&quot; to login" text="domPiotra" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="user" promptText="Use &quot;open&quot; to login" text="user" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <Button fx:id="registerButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Register" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
-                        <PasswordField fx:id="password" promptText="provide password" text="haslo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="password" promptText="provide password" text="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="109.0" />
